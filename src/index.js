@@ -1,11 +1,12 @@
-
-import connection from "../db/index.js";
+import connection from "./db/index.js";
 import { app } from "./app.js";
 
+const PORT = process.env.PORT || 8000;
 
-connection().then(
-
-    app.listen(process.env.PORT || 8000,()=>{
-        console.log("server is running on porty ",process.env.PORT);
+connection()
+  .then(
+    app.listen(PORT, () => {
+      console.log("server is running on porty ", PORT);
     })
-).catch(err=>console.log("connection failed",err))
+  )
+  .catch((err) => console.log("connection failed", err));
